@@ -22,7 +22,7 @@ atten_label = 0
 atten_name = 0
 today=date.today()
 atte={"name":0}
-
+alarm=input(Fore.WHITE +Back.BLUE+" Turn off the ALARM ?\n"+Fore.RED +Back.WHITE+"<y>"+Fore.WHITE +Back.BLUE+ "for yes and"+Fore.RED +Back.WHITE+" <n>"+Fore.WHITE +Back.BLUE+" for no\n")
 recognizer=cv2.face.LBPHFaceRecognizer_create()
 recognizer.read("trainner.yml")
 lables={"person_name":1}
@@ -76,10 +76,10 @@ while(True):
             atten_id=id_
             atten_name=name
             #code for alarm if  person from dataset is found is found
-    
-            pygame.mixer.init()
-            pygame.mixer.music.load('sound.wav')
-            pygame.mixer.music.play(1)
+            if (alarm!="y"):
+                pygame.mixer.init()
+                pygame.mixer.music.load('sound.wav')
+                pygame.mixer.music.play(1)
         
         img_item="my-image.png"
         cv2.imwrite(img_item, roi_gray)
